@@ -1,16 +1,33 @@
-# Your workflow name.
-name: Deploy to heroku.
+name: CI
 
-# Run workflow on every push to main branch.
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
-# Your workflows jobs.
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      # Check-out your repository.
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pipenv install 
+
+      - name: Set up environment variables
+        run: |
+          echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
+          echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+          echo "DB_USER=${{ secrets.DB_USER }}" >> .env
+          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
+
+      - name: Run your script
+        run
