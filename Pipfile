@@ -20,6 +20,7 @@ plotly-express = "*"
 plotly = "*"
 jupyter = "*"
 python-dotenv = "*"
+pyhocon = "*"
 
 [dev-packages]
 
