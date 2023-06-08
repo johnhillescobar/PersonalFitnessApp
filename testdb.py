@@ -22,6 +22,17 @@ session = Session()
 # Perform database operations
 # ...
 
+
+#conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT) 
+
+pgcursor = conn.cursor()
+
+# retrive data 
+pgcursor.execute('select * from fitness.nutrition_daily nd')
+
+for row in pgcursor.fetchall():
+    print(row)
+
 # Close the connection/session when done
 session.close()
 conn.close()
