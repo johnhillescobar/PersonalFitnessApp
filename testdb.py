@@ -1,15 +1,23 @@
 import psycopg2
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from common.config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
+#from common.config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
+from common.config import get_config_instance
+import logging
+import requests
+
 import os
-
 from dotenv import load_dotenv
-
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT 
-
 from dotenv import load_dotenv
 
+conf = get_config_instance()
+
+DB_HOST = conf.db_host
+DB_PORT = conf.db_port
+DB_NAME = conf.db_name
+DB_USER = conf.db_user
+DB_PASSWORD = conf.db_password
 
 print(DB_HOST)
 print(DB_PORT)
