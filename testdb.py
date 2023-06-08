@@ -3,6 +3,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from conf.config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
 
+from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT 
+
 # Connect using psycopg2
 conn = psycopg2.connect(
     host=DB_HOST,
@@ -13,17 +15,17 @@ conn = psycopg2.connect(
 )
 
 # Create SQLAlchemy engine
-engine = create_engine(f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
+#engine = create_engine(f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
 
 # Create a session using SQLAlchemy
-Session = sessionmaker(bind=engine)
-session = Session()
+#Session = sessionmaker(bind=engine)
+#session = Session()
 
 # Perform database operations
 # ...
 
 
-#conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT) 
+conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT) 
 
 pgcursor = conn.cursor()
 
@@ -34,5 +36,5 @@ for row in pgcursor.fetchall():
     print(row)
 
 # Close the connection/session when done
-session.close()
+#session.close()
 conn.close()
