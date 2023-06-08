@@ -3,7 +3,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from conf.config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
 
+from dotenv import load_dotenv
+
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT 
+
+from dotenv import load_dotenv
 
 # Connect using psycopg2
 conn = psycopg2.connect(

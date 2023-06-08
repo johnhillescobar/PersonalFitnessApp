@@ -19,6 +19,7 @@ lightgbm = "*"
 plotly-express = "*"
 plotly = "*"
 jupyter = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
