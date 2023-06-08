@@ -1,7 +1,7 @@
 import psycopg2
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from conf.config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
+from common.config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
 import os
 
 from dotenv import load_dotenv
