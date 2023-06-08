@@ -9,7 +9,7 @@
 from functools import lru_cache
 from pyhocon import ConfigFactory
 
-conf = ConfigFactory.parse_file(".con/application.conf").with_fallback("./conf/dev_data.conf")
+conf = ConfigFactory.parse_file(".conf/application.conf").with_fallback("./conf/dev_data.conf")
 
 class ConfigConstant:
     """
