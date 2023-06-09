@@ -30,4 +30,5 @@ jobs:
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
 
       - name: Run your script
-        run
+        run:
+            testdb.py
