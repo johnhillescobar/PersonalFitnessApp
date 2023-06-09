@@ -29,4 +29,4 @@ jobs:
 
       - name: Run your script
         run:
-            testdb.py
+            python testdb.py
