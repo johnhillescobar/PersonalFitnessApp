@@ -19,9 +19,8 @@ jobs:
           python-version: 3.11
           
       - name: install dependencies
-        run: pip install pipenv
-             pipenv install 
-             pipenv shell
+        run: pip install -r Pipfile
+            
      
       - name: Set up environment variables
         run: |
